@@ -1,0 +1,114 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles/styles.css') }}"/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+			crossorigin="anonymous">
+		</script>
+
+		<title>Emotion Detection Form</title>
+	</head>
+
+	<body>
+		<h1 id="logo">NAVARASA</h1>
+
+		<div class="container">
+			<div id="form">
+				<h3>HELLO!! PLEASE DO FILL THE FORM!</h3>
+				<form autocomplete="off" action="{{ url_for('predict')}}" method="POST">
+					<label for="name">Name</label>
+					<input
+						class="form-control"
+						type="text"
+						name="name"
+						placeholder="John Doe"
+						autofocus="True"
+					/>
+
+					<label for="dob">Date of Birth</label>
+					<input
+						class="form-control"
+						data-date-format="dd/mm/yyyy"
+						type="date"
+						name="dob"
+						placeholder="Mechanical Department"
+					/>
+
+					<label for="gender">Gender</label>
+					<div class="input-group mb-3" for="gender">
+						<select class="form-select" id="gender-select">
+							<option selected>-Select-</option>
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+							<option value="other">Other</option>
+						</select>
+					</div>
+
+					<label for="occupation">Occupation</label>
+					<input
+						class="form-control"
+						type="text"
+						name="occupation"
+						placeholder="Ex.: Teacher"
+						autofocus="True"
+					/>
+
+					<label for="q1">1. Why are you taking this test?</label>
+					<textarea class="form-control" type="text" name="q1" id="q1"></textarea>
+					<br>
+
+					<label for="q2">2. Are you generally a positive person or a negative person?</label>
+					<textarea name="q2" id="q2" type="text" class="form-control"></textarea>
+					<br>
+
+					<label for="q3">3. Have you felt satisfied recently? What made you feel that way?</label>
+					<textarea name="q3" id="q3" type="text" class="form-control"></textarea>
+					<br>
+
+					<label for="q4">4. Are you excited about anything coming up in the near future?</label>
+					<textarea name="q4" id="q4" type="text" class="form-control"></textarea>
+					<br>
+
+					<label for="q5">5. What makes you feel very good?</label>
+					<textarea name="q5" id="q5" type="text" class="form-control"></textarea>
+					<br>
+
+					<label for="q6">6. How do you take care of your home?</label>
+					<textarea name="q6" id="q6" type="text" class="form-control"></textarea>
+					<br>
+
+					<label for="q7">7. How do you feel right now?</label>
+					<textarea name="q7" id="q7" type="text" class="form-control"></textarea>
+					<br>
+
+					<label for="q8">8. What do you think is a good way to ask someone to stop doing something you don’t like?</label>
+					<textarea name="q8" id="q8" type="text" class="form-control"></textarea>
+					<br>
+
+					<label for="q9">9. What is the best book you have ever read?</label>
+					<textarea name="q9" id="q9" type="text" class="form-control"></textarea>
+					<br>
+
+					<label for="q10">10. How does chocolate make you feel?
+					</label>
+					<textarea name="q10" id="q10" type="text" class="form-control"></textarea>
+					<br>
+					<input type="submit" value="Submit" class="btn btn-primary">
+				</form>
+			</div>
+			<div class="result form-control">
+				Emotion Predicted: {{prediction_text}}
+			</div>
+		</div>
+	</body>
+</html>
